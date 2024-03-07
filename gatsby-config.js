@@ -4,26 +4,54 @@
 module.exports = {
   siteMetadata: {
     title: `OU Thai Student Association`,
-    siteUrl: `https://www.yourdomain.tld`
+    siteUrl: `https://tsaou.page/`,
   },
-  plugins: ["gatsby-plugin-postcss", "gatsby-plugin-google-gtag", "gatsby-plugin-image", {
-    resolve: 'gatsby-plugin-manifest',
-    options: {
-      "icon": "src/images/icon.png"
-    }
-  }, "gatsby-plugin-mdx", "gatsby-plugin-sharp", "gatsby-transformer-sharp", {
-    resolve: 'gatsby-source-filesystem',
-    options: {
-      "name": "images",
-      "path": "./src/images/"
+  plugins: [
+    "gatsby-plugin-postcss",
+    {
+      resolve: "gatsby-plugin-google-gtag",
+      options: { trackingIds: ["G-WQ161LH8W7", "AW-390929899"] },
+      gtagConfig: {
+        anonymize_ip: true,
+        cookie_expires: 0,
+      },
     },
-    __key: "images"
-  }, {
-    resolve: 'gatsby-source-filesystem',
-    options: {
-      "name": "pages",
-      "path": "./src/pages/"
+    "gatsby-plugin-image",
+    {
+      resolve: "gatsby-plugin-manifest",
+      options: {
+        icon: "src/images/icon.png",
+      },
     },
-    __key: "pages"
-  }]
+    {
+      resolve: "gatsby-plugin-mdx",
+      options: {},
+    },
+    "gatsby-plugin-sharp",
+    "gatsby-transformer-sharp",
+    {
+      resolve: "gatsby-source-filesystem",
+      options: {
+        name: "images",
+        path: "./src/images/",
+      },
+      __key: "images",
+    },
+    {
+      resolve: "gatsby-source-filesystem",
+      options: {
+        name: "pages",
+        path: "./src/pages/",
+      },
+      __key: "pages",
+    },
+    {
+      resolve: "gatsby-source-filesystem",
+      options: {
+        name: "events",
+        path: `${__dirname}/events`,
+      },
+      __key: "events",
+    },
+  ],
 };
