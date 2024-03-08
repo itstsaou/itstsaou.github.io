@@ -10,9 +10,8 @@
   h3 {
     @apply my-3.5 text-lg;
   }
-
-  ol {
-    @apply list-inside list-decimal;
+  p {
+    @apply my-1;
   }
 }
 

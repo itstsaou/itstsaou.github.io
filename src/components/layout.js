@@ -11,7 +11,7 @@ const shortcodes = { PageHeader };
 
 const navigation = [
   { name: "Events", href: "/events" },
-  { name: "Community", href: "#" },
+  { name: "Community", href: "/community" },
   { name: "Thailand", href: "#" },
   { name: "About", href: "/about" },
 ];
