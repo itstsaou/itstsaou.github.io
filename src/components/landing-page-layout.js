@@ -5,10 +5,6 @@ import { Link } from "gatsby";
 import { Dialog } from "@headlessui/react";
 import { Bars3Icon, XMarkIcon } from "@heroicons/react/24/outline";
 
-import PageHeader from "./page-header";
-
-const shortcodes = { PageHeader };
-
 const navigation = [
   { name: "Events", href: "/events" },
   { name: "Community", href: "#" },
@@ -119,8 +115,8 @@ const Layout = ({ pageTitle, children }) => {
           </Dialog.Panel>
         </Dialog>
       </header>
-      <main className="mt-32 px-3">
-        <MDXProvider components={shortcodes}>{children}</MDXProvider>
+      <main>
+        <MDXProvider>{children}</MDXProvider>
       </main>
     </div>
   );

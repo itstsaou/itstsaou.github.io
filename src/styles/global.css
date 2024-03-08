@@ -2,13 +2,17 @@
 
 @layer base {
   h1 {
-    @apply text-2xl;
+    @apply my-3.5 text-2xl;
   }
   h2 {
-    @apply text-xl;
+    @apply my-3.5 text-xl;
   }
   h3 {
-    @apply text-lg;
+    @apply my-3.5 text-lg;
+  }
+
+  ol {
+    @apply list-inside list-decimal;
   }
 }
 
