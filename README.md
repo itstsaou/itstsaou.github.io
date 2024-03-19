@@ -1,11 +1,14 @@
-<p align="center">
-  <a href="https://www.gatsbyjs.com/?utm_source=starter&utm_medium=readme&utm_campaign=minimal-starter">
-    <img alt="Gatsby" src="https://www.gatsbyjs.com/Gatsby-Monogram.svg" width="60" />
-  </a>
-</p>
-<h1 align="center">
-  Gatsby Minimal Starter
-</h1>
+Thai Student Association's Website. Created with Gatsby.
+
+## Note
+
+- The YAML parser that parses the frontmatter will add `Z` to `begin: 2023-10-18T18:00:00`
+  (or to any timezone the system is currently using). For luxon to properly handle this value,
+  it has to be explicitly specified as a string e.g. `begin: "2023-10-18T18:00:00"` or
+  `begin: !!str 2023-10-18T18:00:00`. Same deal for the `end` field.
+- We used to use Gatsby before, but its dependencies were broken beyound repair, so
+  we switched to Jekyll. The reason we are using it now is purely because of the dynamic nature
+  of Gatsby's graphql.
 
 ## 🚀 Quick start
 

@@ -1,6 +1,9 @@
 @tailwind base;
 
 @layer base {
+  a {
+    @apply text-tsaou;
+  }
   h1 {
     @apply my-3.5 text-2xl;
   }

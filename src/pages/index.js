@@ -33,7 +33,7 @@ const IndexPage = () => {
           </div>
           <div className="text-center">
             <h1 className="text-4xl font-bold tracking-tight text-gray-900 sm:text-6xl">
-              Thai Student Association @ OU
+              Thai Student Association @ <span className="text-tsaou">OU</span>
             </h1>
             <p className="mt-6 text-lg leading-8 text-gray-600">
               We consist of Thai students, Thai language students and Thai
@@ -46,12 +46,12 @@ const IndexPage = () => {
               >
                 Join us
               </Link>
-              <a
-                href="#"
+              <Link
+                to="/about"
                 className="text-sm font-semibold leading-6 text-gray-900"
               >
                 Learn more <span aria-hidden="true">→</span>
-              </a>
+              </Link>
             </div>
           </div>
         </div>
@@ -72,6 +72,6 @@ const IndexPage = () => {
   );
 };
 
-export const Head = () => <title>Home Page</title>;
+export const Head = () => <title>Home | TSA @ OU</title>;
 
 export default IndexPage;

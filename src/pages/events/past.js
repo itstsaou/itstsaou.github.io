@@ -1,6 +1,7 @@
 import * as React from "react";
 import { Link, graphql } from "gatsby";
 import { DateTime } from "luxon";
+import { Breadcrumb } from "flowbite-react";
 import Layout from "../../components/layout";
 import PageHeader from "../../components/page-header";
 
@@ -30,15 +31,19 @@ const EventEntry = ({ node }) => {
   );
 };
 
-const EventIndexPage = ({ data }) => {
+const PastEventPage = ({ data }) => {
   return (
-    <Layout pageTitle="Events">
+    <Layout pageTitle="Past Events">
+      <Breadcrumb aria-label="Breadcrumb">
+        <Breadcrumb.Item>
+          <Link to="/events">Events</Link>
+        </Breadcrumb.Item>
+        <Breadcrumb.Item>Past Events</Breadcrumb.Item>
+      </Breadcrumb>
       <PageHeader
-        title="Our Events"
-        description="Browse through our upcoming and past events."
+        title="Our Past Events"
+        description="A look through our past work."
       />
-      <h1>Upcoming Events</h1>
-      <p>This semester, we have a ton of events lined up! Come join us!</p>
       {data.allMdx.nodes
         .filter((node) => {
           const todayDateTime = DateTime.local()
@@ -47,17 +52,11 @@ const EventIndexPage = ({ data }) => {
           const beginDateTime = DateTime.fromISO(node.frontmatter.begin, {
             zone: node.frontmatter.tz,
           });
-          return beginDateTime >= todayDateTime;
+          return beginDateTime < todayDateTime;
         })
         .map((node) => (
           <EventEntry key={node.id} node={node}></EventEntry>
         ))}
-      <hr className="my-8 h-px border-0 bg-gray-300" />
-      <h1>Past Events</h1>
-      <p>Want to browse through our history instead?</p>
-      <Link to="past" className="text-sm font-semibold leading-6 text-gray-900">
-        List of past events <span aria-hidden="true">→</span>
-      </Link>
     </Layout>
   );
 };
@@ -66,7 +65,7 @@ export const query = graphql`
   query {
     allMdx(
       filter: { internal: { contentFilePath: { regex: "/events/" } } }
-      sort: { frontmatter: { begin: ASC } }
+      sort: { frontmatter: { begin: DESC } }
     ) {
       nodes {
         frontmatter {
@@ -84,6 +83,6 @@ export const query = graphql`
   }
 `;
 
-export const Head = () => <title>Events</title>;
+export const Head = () => <title>Past Events</title>;
 
-export default EventIndexPage;
+export default PastEventPage;
