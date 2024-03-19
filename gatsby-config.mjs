@@ -3,8 +3,6 @@
  */
 import { dirname } from "path";
 import { fileURLToPath } from "url";
-import rehypeSlug from "rehype-slug";
-import rehypeAutolinkHeadings from "rehype-autolink-headings";
 
 const __dirname = dirname(fileURLToPath(import.meta.url));
 
@@ -15,6 +13,10 @@ const config = {
   },
   plugins: [
     "gatsby-plugin-postcss",
+    {
+      resolve: "gatsby-plugin-mdx",
+      options: {},
+    },
     "gatsby-transformer-sharp",
     "gatsby-plugin-image",
     {
@@ -39,18 +41,6 @@ const config = {
       resolve: "gatsby-plugin-manifest",
       options: {
         icon: "src/images/icon.png",
-      },
-    },
-    {
-      resolve: "gatsby-plugin-mdx",
-      options: {
-        rehypePlugins: [
-          // Generate heading ids for rehype-autolink-headings
-          rehypeSlug,
-          // To pass options, use a 2-element array with the
-          // configuration in an object in the second element
-          [rehypeAutolinkHeadings, { behavior: `wrap` }],
-        ],
       },
     },
     {
