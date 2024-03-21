@@ -41,9 +41,3 @@ exports.createPages = async ({ graphql, actions }) => {
     }),
   );
 };
-
-exports.onPostBuild = ({ store }) => {
-  const { redirects } = store.getState();
-
-  console.log(redirects);
-};

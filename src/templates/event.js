@@ -21,7 +21,7 @@ const EventPageTemplate = ({ data, children }) => {
   let carousel;
   if (frontmatter.embeddedImagesLocal) {
     carousel = (
-      <div className="xl:h-128 sm:h-128 mx-auto h-56 w-9/12">
+      <div className="mx-auto h-56 w-9/12 sm:h-128 xl:h-128">
         <Carousel>
           {frontmatter.embeddedImagesLocal.map((item, idx) => (
             <GatsbyImage

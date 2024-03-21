@@ -15,7 +15,16 @@ const config = {
     "gatsby-plugin-postcss",
     {
       resolve: "gatsby-plugin-mdx",
-      options: {},
+      options: {
+        gatsbyRemarkPlugins: [
+          {
+            resolve: `gatsby-remark-images`,
+            options: {
+              maxWidth: 800,
+            },
+          },
+        ],
+      },
     },
     "gatsby-transformer-sharp",
     "gatsby-plugin-image",
