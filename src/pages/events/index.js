@@ -55,7 +55,7 @@ const EventIndexPage = ({ data }) => {
       <hr className="my-8 h-px border-0 bg-gray-300" />
       <h1>Past Events</h1>
       <p>Want to browse through our history instead?</p>
-      <Link to="past" className="text-sm font-semibold leading-6 text-gray-900">
+      <Link to="past" className="text-sm font-semibold leading-6">
         List of past events <span aria-hidden="true">→</span>
       </Link>
     </Layout>
