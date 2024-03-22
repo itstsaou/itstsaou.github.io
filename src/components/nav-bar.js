@@ -1,6 +1,7 @@
 import * as React from "react";
 import { useState } from "react";
 import { Link } from "gatsby";
+import { StaticImage } from "gatsby-plugin-image";
 import { Dialog } from "@headlessui/react";
 import { Bars3Icon, XMarkIcon } from "@heroicons/react/24/outline";
 
@@ -24,12 +25,12 @@ const NavBar = () => {
             <span className="sr-only">
               Thai Student Association at Ohio University
             </span>
-            TSA @ OU
-            {/* <img
-                className="h-8 w-auto"
-                src="https://tailwindui.com/img/logos/mark.svg?color=indigo&shade=600"
-                alt=""
-              /> */}
+            <StaticImage
+              className="h-6 w-6"
+              src="../images/icon.png"
+              alt="Thai Student Association Logo"
+            />
+            <span className="pl-2">TSA @ OU</span>
           </Link>
         </div>
         <div className="flex lg:hidden">
@@ -75,12 +76,12 @@ const NavBar = () => {
               <span className="sr-only">
                 Thai Student Association at Ohio University
               </span>
-              TSA @ OU
-              {/* <img
-                  className="h-8 w-auto"
-                  src="https://tailwindui.com/img/logos/mark.svg?color=indigo&shade=600"
-                  alt=""
-                /> */}
+              <StaticImage
+                className="h-6 w-6 pr-2"
+                src="../images/icon.png"
+                alt="Thai Student Association Logo"
+              />
+              <span className="pl-2">TSA @ OU</span>
             </a>
             <button
               type="button"

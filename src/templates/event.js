@@ -58,7 +58,7 @@ const EventPageTemplate = ({ data, children }) => {
           <Breadcrumb.Item>{frontmatter.title}</Breadcrumb.Item>
         </Breadcrumb>
         <div className="mb-14">
-          <p className="mb-5 sm:text-3xl md:text-6xl">{frontmatter.title}</p>
+          <p className="mb-5 text-3xl md:text-6xl">{frontmatter.title}</p>
           <p>
             <span>
               {beginDateTime.toLocaleString(DateTime.DATE_MED_WITH_WEEKDAY)}
