@@ -1,7 +1,7 @@
 import * as React from "react";
 import { Link, graphql } from "gatsby";
 import { DateTime } from "luxon";
-import { Carousel, Breadcrumb } from "flowbite-react";
+import { Carousel, Breadcrumb, Footer } from "flowbite-react";
 import { GatsbyImage, getImage } from "gatsby-plugin-image";
 import { MDXProvider } from "@mdx-js/react";
 
@@ -69,6 +69,15 @@ const EventPageTemplate = ({ data, children }) => {
         </div>
         <MDXProvider components={shortcodes}>{children}</MDXProvider>
       </main>
+      <Footer container>
+        <Footer.Copyright href="/" by="TSA @ OU" year={2024} />
+        <Footer.LinkGroup>
+          <Footer.Link>
+            <Link to="/about">About</Link>
+          </Footer.Link>
+          <Footer.Link href="#">Privacy Policy</Footer.Link>
+        </Footer.LinkGroup>
+      </Footer>
     </div>
   );
 };
