@@ -14,7 +14,7 @@ const PostEntry = ({ node }) => {
   return (
     <article>
       <h3>
-        <Link to={`/events/${node.frontmatter.slug}`}>
+        <Link to={`/posts/${node.frontmatter.slug}`}>
           {node.frontmatter.title}
         </Link>
       </h3>
@@ -24,7 +24,6 @@ const PostEntry = ({ node }) => {
         </span>{" "}
         <span>{beginDateTime.toLocaleString(DateTime.TIME_SIMPLE)}</span>
       </p>
-      <p>Location: {node.frontmatter.location}</p>
       <p>{node.excerpt}</p>
     </article>
   );
@@ -50,8 +49,12 @@ export const query = graphql`
       nodes {
         frontmatter {
           title
+          author
           slug
+          begin
+          end
           tz
+          location
         }
         id
         excerpt

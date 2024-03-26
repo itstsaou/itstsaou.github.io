@@ -77,6 +77,14 @@ const config = {
       __key: "events",
     },
     {
+      resolve: "gatsby-source-filesystem",
+      options: {
+        name: "events",
+        path: `${__dirname}/posts`,
+      },
+      __key: "posts",
+    },
+    {
       resolve: `gatsby-source-filesystem`,
       options: {
         path: `${__dirname}/src/images`,
