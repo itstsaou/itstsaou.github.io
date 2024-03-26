@@ -72,6 +72,8 @@ const IndexPage = () => {
   );
 };
 
-export const Head = () => <title>Home | TSA @ OU</title>;
+export const Head = () => (
+  <title>Thai Student Association at Ohio University</title>
+);
 
 export default IndexPage;
