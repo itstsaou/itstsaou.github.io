@@ -44,7 +44,7 @@ const PostTemplate = ({ data, children }) => {
       <main className="mt-32 px-3">
         <Breadcrumb aria-label="Breadcrumb">
           <Breadcrumb.Item>
-            <Link to="/posts">Posts</Link>
+            <Link to="/blog">Posts</Link>
           </Breadcrumb.Item>
           <Breadcrumb.Item>{frontmatter.title}</Breadcrumb.Item>
         </Breadcrumb>
