@@ -23,7 +23,9 @@ const Layout = ({ pageTitle, children }) => {
           <Footer.Link>
             <Link to="/about">About</Link>
           </Footer.Link>
-          <Footer.Link href="#">Privacy Policy</Footer.Link>
+          <Footer.Link>
+            <Link to="/privacy-policy">Privacy Policy</Link>
+          </Footer.Link>
         </Footer.LinkGroup>
       </Footer>
     </div>
