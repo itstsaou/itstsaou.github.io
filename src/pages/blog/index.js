@@ -44,7 +44,7 @@ export const query = graphql`
   query {
     allMdx(
       filter: { internal: { contentFilePath: { regex: "/posts/" } } }
-      sort: { frontmatter: { begin: ASC } }
+      sort: { frontmatter: { begin: DESC } }
     ) {
       nodes {
         frontmatter {
