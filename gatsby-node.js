@@ -59,19 +59,9 @@ const createPostPages = async (graphql, createPage) => {
 };
 
 exports.createPages = async ({ graphql, actions }) => {
-  const { createPage, createRedirect } = actions;
+  const { createPage } = actions;
 
   // Create pages from mdxs.
   await createEventPages(graphql, createPage);
   await createPostPages(graphql, createPage);
-
-  // Create redirects for 2024 Thai Night.
-  const thaiNight2024Aliases = ["/2024-thai-night", "/thai-night"];
-  thaiNight2024Aliases.forEach((alias) =>
-    createRedirect({
-      fromPath: alias,
-      toPath: `/events/2024-04-14-thai-night`,
-      redirectInBrowser: true,
-    }),
-  );
 };
