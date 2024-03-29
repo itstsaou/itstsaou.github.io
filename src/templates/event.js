@@ -34,10 +34,35 @@ const EventPageTemplate = ({ data, children }) => {
       </div>
     );
   }
+
+  const images = {};
+  if (frontmatter.embeddedImagesLocal) {
+    frontmatter.embeddedImagesLocal.forEach((item, idx) => {
+      images[`EmbeddedImage${idx}`] = function ({
+        className,
+        imgClassName,
+        objectFit,
+        style,
+      }) {
+        return (
+          <GatsbyImage
+            style={style}
+            className={className}
+            imgClassName={imgClassName}
+            objectFit={objectFit}
+            image={getImage(item.childImageSharp.gatsbyImageData)}
+            alt={frontmatter.embeddedImagesLocalAlts[idx]}
+          />
+        );
+      };
+    });
+  }
+
   const shortcodes = {
     Carousel() {
       return carousel;
     },
+    ...images,
   };
 
   return (
@@ -67,7 +92,9 @@ const EventPageTemplate = ({ data, children }) => {
           </p>
           <p>Location: {frontmatter.location}</p>
         </div>
-        <MDXProvider components={shortcodes}>{children}</MDXProvider>
+        <MDXProvider components={shortcodes} frontmatter={frontmatter}>
+          {children}
+        </MDXProvider>
       </main>
       <Footer container>
         <Footer.Copyright href="/" by="TSA @ OU" year={2024} />
