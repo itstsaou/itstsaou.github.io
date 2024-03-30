@@ -91,6 +91,7 @@ const config = {
       },
       __key: "images",
     },
+    `gatsby-plugin-sitemap`,
   ],
 };
 
