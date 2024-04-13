@@ -7,7 +7,6 @@ import {
   Dropdown,
   Label,
   RangeSlider,
-  ToggleSwitch,
 } from "flowbite-react";
 import { Switch } from "@headlessui/react";
 import Layout from "../../components/layout";
@@ -29,7 +28,7 @@ const QRCodeGenerator = () => {
 
     setText(textDefault);
     setSize(sizeDefault);
-  });
+  }, []);
 
   return (
     <Layout pageTitle="QR Code Generator">
@@ -130,7 +129,7 @@ const QRCodeGenerator = () => {
         </Button>
       </div>
       <div>
-        <img src={qrCodeDataURI}></img>
+        {text !== "" && <img src={qrCodeDataURI} alt="QR Code Result"></img>}
       </div>
     </Layout>
   );
