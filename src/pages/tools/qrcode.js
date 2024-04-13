@@ -129,7 +129,9 @@ const QRCodeGenerator = () => {
         </Button>
       </div>
       <div>
-        {text !== "" && <img src={qrCodeDataURI} alt="QR Code Result"></img>}
+        {qrCodeDataURI !== "" && (
+          <img src={qrCodeDataURI} alt="QR Code Result"></img>
+        )}
       </div>
     </Layout>
   );
