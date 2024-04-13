@@ -15,7 +15,7 @@ const ToolIndexPage = () => {
       <div className="flex flex-row flex-wrap gap-2">
         <Card href="#" className="basis-80">
           <h5 className="text-2xl font-bold tracking-tight text-gray-900 dark:text-white">
-            <Link to="qrcode-gen">QR Code Generator</Link>
+            <Link to="qrcode">QR Code Generator</Link>
           </h5>
           <p className="font-normal text-gray-700 dark:text-gray-400">
             Our in-house QR code generator.
@@ -46,6 +46,22 @@ const ToolIndexPage = () => {
             Our checklist for the general body meeting.
           </p>
         </Card>
+      </div>
+
+      <div>
+        <h2>Quick Links</h2>
+        <ul className="list-inside list-disc">
+          <li>
+            <a href="https://www.ohio.edu/engagement/resources" target="_blank">
+              Student Organization Finances Information Page
+            </a>
+          </li>
+          <li>
+            <a href="https://help.ohio.edu/TDClient/38/OHIOBSC/Home/" target="_blank">
+              Reimbursement System (OHIO BSC Client Portal Home)
+            </a>
+          </li>
+        </ul>
       </div>
     </Layout>
   );
