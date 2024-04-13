@@ -1,5 +1,5 @@
 import * as React from "react";
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { Link } from "gatsby";
 import {
   Button,
@@ -16,15 +16,20 @@ import PageHeader from "../../components/page-header";
 import { QRCodeCanvas } from "@cheprasov/qrcode";
 
 const QRCodeGenerator = () => {
-  const params = new URLSearchParams(document.location.search);
-  const textDefault = params.get("text") || "";
-  const sizeDefault = parseInt(params.get("size") || "1024");
-
-  const [text, setText] = useState(textDefault);
-  const [size, setSize] = useState(sizeDefault);
+  const [text, setText] = useState("");
+  const [size, setSize] = useState(1024);
   const [includeLogo, setIncludeLogo] = useState(true);
   const [errorCorrectionLevel, setErrorCorrectionLevel] = useState("H");
   const [qrCodeDataURI, setQrCodeDataURI] = useState("");
+
+  useEffect(() => {
+    const params = new URLSearchParams(document.location.search);
+    const textDefault = params.get("text") || "";
+    const sizeDefault = parseInt(params.get("size") || "1024");
+
+    setText(textDefault);
+    setSize(sizeDefault);
+  });
 
   return (
     <Layout pageTitle="QR Code Generator">
