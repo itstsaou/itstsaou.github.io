@@ -1,5 +1,6 @@
 import * as React from "react";
 import { StaticImage } from "gatsby-plugin-image";
+import { Link } from "gatsby";
 
 const people = [
   {
@@ -64,6 +65,7 @@ export default function LeadershipPanel() {
             Our organization is run by these talented people with the support of
             our lovely members.
           </p>
+          <Link to="/exec-boards">Past executive boards</Link>
         </div>
         <ul
           role="list"
