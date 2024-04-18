@@ -52,12 +52,23 @@ const ToolIndexPage = () => {
         <h2>Quick Links</h2>
         <ul className="list-inside list-disc">
           <li>
-            <a href="https://www.ohio.edu/engagement/resources" target="_blank">
-              Student Organization Finances Information Page
+            <a
+              href="https://obiprd.oit.ohio.edu/analytics/saw.dll?bieehome"
+              target="_blank"
+            >
+              Funds Available View
             </a>
           </li>
           <li>
-            <a href="https://help.ohio.edu/TDClient/38/OHIOBSC/Home/" target="_blank">
+            <a href="https://www.ohio.edu/engagement/resources" target="_blank">
+              Student Organization Resources & Trainings
+            </a>
+          </li>
+          <li>
+            <a
+              href="https://help.ohio.edu/TDClient/38/OHIOBSC/Home/"
+              target="_blank"
+            >
               Reimbursement System (OHIO BSC Client Portal Home)
             </a>
           </li>
