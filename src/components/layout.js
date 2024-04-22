@@ -20,12 +20,12 @@ const Layout = ({ pageTitle, children }) => {
       <Footer container>
         <Footer.Copyright href="/" by="TSA @ OU" year={2024} />
         <Footer.LinkGroup>
-          <Footer.Link>
-            <Link to="/about">About</Link>
-          </Footer.Link>
-          <Footer.Link>
-            <Link to="/privacy-policy">Privacy Policy</Link>
-          </Footer.Link>
+          <Link to="/about" className="mx-1">
+            About
+          </Link>
+          <Link to="/privacy-policy" className="mx-1">
+            Privacy Policy
+          </Link>
         </Footer.LinkGroup>
       </Footer>
     </div>
