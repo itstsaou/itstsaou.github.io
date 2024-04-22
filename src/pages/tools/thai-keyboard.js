@@ -1,5 +1,5 @@
 import * as React from "react";
-import { useState, useMemo } from "react";
+import { useState, useMemo, useRef } from "react";
 import { Link } from "gatsby";
 import { Breadcrumb } from "flowbite-react";
 import { Switch } from "@headlessui/react";
@@ -106,16 +106,21 @@ const KeyboardAndInputEntry = () => {
   const [layoutName, setLayoutName] = useState("defaultTh");
   const [text, setText] = useState("");
 
+  const contentTextareaRef = useRef(null);
+  const keyboardRef = useRef(null);
+
   return (
     <>
       <div className="mb-6">
         <label
-          for="content-txt"
+          htmlFor="content-txt"
           className="mb-2 block text-sm font-medium text-gray-900 dark:text-white"
         >
           Content
         </label>
         <textarea
+          ref={contentTextareaRef}
+          rows={5}
           value={text}
           onChange={(e) => {
             let newValue = e.target.value;
@@ -134,6 +139,8 @@ const KeyboardAndInputEntry = () => {
             } else {
               setText(newValue);
             }
+
+            keyboardRef.current.replaceInput({ default: newValue });
           }}
           onKeyDown={(e) => {
             if (e.shiftKey && !isHoldingShiftKey) {
@@ -169,7 +176,6 @@ const KeyboardAndInputEntry = () => {
       </div>
 
       <div>
-        <span className="px-1">Thai Layout</span>
         <Switch
           checked={enabled}
           onChange={(value) => {
@@ -196,10 +202,17 @@ const KeyboardAndInputEntry = () => {
             } inline-block h-4 w-4 transform rounded-full bg-white transition`}
           />
         </Switch>
+        <span className="px-1">Thai Layout</span>
       </div>
       <div className="mx-auto h-96 w-full md:w-9/12">
         <KeyboardModern
           {...layouts}
+          keyboardRef={(r) => {
+            keyboardRef.current = r;
+          }}
+          preventMouseDownDefault={true}
+          preventMouseUpDefault={true}
+          newLineOnEnter={true}
           layoutName={layoutName}
           onChange={(input) => {
             setText(input);
