@@ -1,7 +1,7 @@
 import * as React from "react";
 import { useState, useMemo, useRef } from "react";
 import { Link } from "gatsby";
-import { Breadcrumb } from "flowbite-react";
+import { Breadcrumb, Button } from "flowbite-react";
 import { Switch } from "@headlessui/react";
 import Layout from "../../components/layout";
 import PageHeader from "../../components/page-header";
@@ -120,7 +120,7 @@ const KeyboardAndInputEntry = () => {
         </label>
         <textarea
           ref={contentTextareaRef}
-          rows={5}
+          rows={3}
           value={text}
           onChange={(e) => {
             let newValue = e.target.value;
@@ -175,34 +175,58 @@ const KeyboardAndInputEntry = () => {
         ></textarea>
       </div>
 
-      <div>
-        <Switch
-          checked={enabled}
-          onChange={(value) => {
-            setEnabled(value);
+      <div className="my-2 flex flex-row gap-2">
+        <div className="pt-2">
+          <Switch
+            checked={enabled}
+            onChange={(value) => {
+              setEnabled(value);
 
-            if (value && layoutName.startsWith("default")) {
-              setLayoutName("defaultTh");
-            } else if (value && layoutName.startsWith("shift")) {
-              setLayoutName("shiftTh");
-            } else if (layoutName.startsWith("default")) {
-              setLayoutName("defaultEn");
-            } else if (layoutName.startsWith("shift")) {
-              setLayoutName("shiftEn");
+              if (value && layoutName.startsWith("default")) {
+                setLayoutName("defaultTh");
+              } else if (value && layoutName.startsWith("shift")) {
+                setLayoutName("shiftTh");
+              } else if (layoutName.startsWith("default")) {
+                setLayoutName("defaultEn");
+              } else if (layoutName.startsWith("shift")) {
+                setLayoutName("shiftEn");
+              }
+            }}
+            className={`${
+              enabled ? "bg-blue-600" : "bg-gray-200"
+            } relative inline-flex h-6 w-11 items-center rounded-full`}
+          >
+            <span className="sr-only">Enable notifications</span>
+            <span
+              className={`${
+                enabled ? "translate-x-6" : "translate-x-1"
+              } inline-block h-4 w-4 transform rounded-full bg-white transition`}
+            />
+          </Switch>
+          <span className="px-1">Thai Layout</span>
+        </div>
+        <Button
+          color="failure"
+          onClick={(event) => {
+            setText("");
+            keyboardRef.current.clearInput();
+          }}
+        >
+          Clear
+        </Button>
+        <Button
+          className="ml-auto"
+          color="success"
+          onClick={async (event) => {
+            try {
+              await navigator.clipboard.writeText(text);
+            } catch (err) {
+              console.error("Failed to copy: ", err);
             }
           }}
-          className={`${
-            enabled ? "bg-blue-600" : "bg-gray-200"
-          } relative inline-flex h-6 w-11 items-center rounded-full`}
         >
-          <span className="sr-only">Enable notifications</span>
-          <span
-            className={`${
-              enabled ? "translate-x-6" : "translate-x-1"
-            } inline-block h-4 w-4 transform rounded-full bg-white transition`}
-          />
-        </Switch>
-        <span className="px-1">Thai Layout</span>
+          Copy
+        </Button>
       </div>
       <div className="mx-auto h-96 w-full md:w-9/12">
         <KeyboardModern
